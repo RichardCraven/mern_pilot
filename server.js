@@ -1,10 +1,5 @@
 require('dotenv').config({path: __dirname + '/.env'})
-process.env['RANDOM_ID'] = Math.random();
 
-// console.log('process.env:', process.env)
-console.log('db name: ', process.env['DATABASE'])
-console.log('token: ', process.env['API_TOKEN'])
-console.log('random Id: ', process.env['RANDOM_ID'])
 console.log('**********', process.env['NODE_ENV'])
 const express = require('express');
 const mongoose = require('mongoose')
@@ -46,7 +41,7 @@ console.log('outside')
 if(process.env.NODE_ENV === 'production'){
     console.log('inside')
     // I tried using
-    app.use(express.static('client/build'))
+    // app.use(express.static('client/build'))
 
     // now I'm trying:
     // app.use(express.static(__dirname + '/client/build'))

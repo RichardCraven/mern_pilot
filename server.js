@@ -1,8 +1,16 @@
+require('dotenv').config({path: __dirname + '/.env'})
+process.env['RANDOM_ID'] = Math.random();
+
+console.log('db name: ', process.env['DATABASE_NAME'])
+console.log('token: ', process.env['API_TOKEN'])
+console.log('random Id: ', process.env['RANDOM_ID'])
+console.log('**********', process.env['NODE_ENV'])
 const express = require('express');
 const mongoose = require('mongoose')
 const morgan = require('morgan');
 const path = require('path');
 // const cors = require('cors');
+
 
 
 const app = express();
@@ -41,8 +49,9 @@ app.get('/', function(req, res){
     res.redirect('/api')
 })
 
-
+console.log('outside')
 if(process.env.NODE_ENV === 'production'){
+    console.log('in here??')
     app.use(express.static('client/build'))
 }
 
